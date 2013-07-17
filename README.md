@@ -12,7 +12,7 @@
 
 #### class method
 
-* static ofxFace ofxCIDetector::getFaces(ofImage image)
+* static vector<ofxFace> ofxCIDetector::getFaces(ofImage image)
 
 ### ofxFace
 
