@@ -1,0 +1,4 @@
+ofxCIDetector
+=============
+
+ofxCIDetector (for iPhone)
