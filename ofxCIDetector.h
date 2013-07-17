@@ -14,13 +14,13 @@
 struct ofxFace {
     ofRectangle rectangle;
     
-    BOOL hasLeftEyePoint;
+    bool hasLeftEyePoint;
     ofPoint leftEyePoint;
     
-    BOOL hasRightEyePoint;
+    bool hasRightEyePoint;
     ofPoint rightEyePoint;
     
-    BOOL hasMouthPoint;
+    bool hasMouthPoint;
     ofPoint mouthPoint;
 };
 
@@ -40,8 +40,7 @@ public:
         int height = image.getHeight();
         ofImageType imageType = image.getPixelsRef().getImageType();
         if(imageType == OF_IMAGE_COLOR_ALPHA) {
-            cgContext = CGBitmapContextCreate(image.getPixels(), image.getWidth(), image.getHeight(), 8, image.getWidth() * 4, colorSpace,
-                                              kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
+            cgContext = CGBitmapContextCreate(image.getPixels(), width, height, 8, width * 4, colorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
         } else if(imageType == OF_IMAGE_COLOR) {
             unsigned char *buf = image.getPixels();
             unsigned char rgba[width * height * 4];
@@ -51,8 +50,7 @@ public:
                 rgba[4 * i + 2] = buf[3 * i + 2];
                 rgba[4 * i + 3] = 0;
             }
-            cgContext = CGBitmapContextCreate(rgba, image.getWidth(), image.getHeight(), 8, image.getWidth() * 4, colorSpace,
-                                              kCGImageAlphaNoneSkipLast);
+            cgContext = CGBitmapContextCreate(rgba, width, height, 8, width * 4, colorSpace, kCGImageAlphaNoneSkipLast);
         }
         CGColorSpaceRelease(colorSpace);
         
