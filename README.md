@@ -1,36 +1,20 @@
-# ofxCIDetector (for iPhone)
+# ofxVoiceSynthesizer (OSX)
 
 ## How to use
 
-1. Add CoreImage.framework to your project
-2. Include ofxCIDetector.h
-3. Call ofxCIDetector::getFaces(image)
+1. Add AppKit.framework to your project
+2. Include ofxVoiceSynthesizer.h
+3. Open Project Setting -> TARGETS -> Build Phases -> Compile Sources
+4. Add Flag "-x objective-c++" for all file of .cpp
 
 ## API
 
-### ofxCIDetector
+### ofxVoiceSynthesizer
 
-#### class method
-
-* static vector<ofxFace> ofxCIDetector::getFaces(ofImage image)
-
-### ofxFace
-
-#### property
-
-* ofRectangle rectangle
-
-* bool hasLeftEyePoint
-* bool hasRightEyePoint
-* bool hasMouthPoint
-
-* ofPoint leftEyePoint
-* ofPoint rightEyePoint
-* ofPoint mouthPoint
+...
 
 ## Update history
 
-### ver 0.01 beta release
+### 2013/07/18 ver 0.01 beta release
 
-* **unsupported** gray scale ofImage
-
+* Let's speak!!
