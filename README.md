@@ -4,8 +4,7 @@
 
 1. Add AppKit.framework to your project
 2. Include ofxVoiceSynthesizer.h
-3. Open Project Setting -> TARGETS -> Build Phases -> Compile Sources
-4. Add Flag "-x objective-c++" for all file of .cpp
+3. Open Project Setting -> TARGETS -> Build Phases -> Compile Sources, and add flag "-x objective-c++" for all file of .cpp
 
 ## API
 
@@ -50,3 +49,12 @@ Stop speaking.
 ### 2013/07/18 ver 0.01 beta release
 
 * Let's speak!!
+
+## License
+
+MIT License.
+
+## Author
+
+* ISHII 2bit [bufferRenaiss co., ltd.]
+* ishii[at]buffer-renaiss.com
