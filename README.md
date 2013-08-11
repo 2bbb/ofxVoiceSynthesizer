@@ -3,8 +3,12 @@
 ## How to use
 
 1. Add AppKit.framework to your project
-2. Include ofxVoiceSynthesizer.h
+2. Add ofxVoiceSynthesizer & ofxObjective-C++Utility to your project and include ofxVoiceSynthesizer.h
 3. Rename all files have extention like .cpp to .mm / Or, open Project Setting -> TARGETS -> Build Phases -> Compile Sources, and add flag "-x objective-c++" for all file of .cpp
+
+## Dependencies
+
+ofxObjective-C++Utility [__https://github.com/2bbb/ofxObjective-C--Utility__]
 
 ## API
 
