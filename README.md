@@ -4,7 +4,7 @@
 
 1. Add AppKit.framework to your project
 2. Include ofxVoiceSynthesizer.h
-3. Open Project Setting -> TARGETS -> Build Phases -> Compile Sources, and add flag "-x objective-c++" for all file of .cpp
+3. Rename all files have extention like .cpp to .mm / Or, open Project Setting -> TARGETS -> Build Phases -> Compile Sources, and add flag "-x objective-c++" for all file of .cpp
 
 ## API
 
