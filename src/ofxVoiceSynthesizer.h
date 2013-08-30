@@ -24,6 +24,7 @@ public:
     void setup(string voiceName,
                string successMessage = "ofxVoiceSysnthesizerSuccess",
                string failureMessage = "ofxVoiceSysnthesizerFailure");
+    void prepare();
     
     float getRate() const;
     void setRate(float rate);
@@ -35,6 +36,7 @@ public:
     bool isSpeaking() const;
     void stopSpeaking();
     
+    void addSpeechDictionary(string path);
 private:
     static bool wasLoadLib;
     NSSpeechSynthesizer *speakSynth;
