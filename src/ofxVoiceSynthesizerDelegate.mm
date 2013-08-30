@@ -23,7 +23,13 @@
 - (void)speechSynthesizer:(NSSpeechSynthesizer *)sender
         didFinishSpeaking:(BOOL)success
 {
-    ofSendMessage(success ? successMessage : failureMessage);
+    [self performSelectorOnMainThread:@selector(sendMessage:)
+                           withObject:@(success)
+                        waitUntilDone:NO];
+}
+
+- (void)sendMessage:(NSNumber *)success {
+    ofSendMessage([success boolValue]? successMessage : failureMessage);
 }
 
 - (void)speechSynthesizer:(NSSpeechSynthesizer *)sender
