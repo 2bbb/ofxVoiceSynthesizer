@@ -26,6 +26,9 @@ public:
                string failureMessage = "ofxVoiceSysnthesizerFailure");
     void prepare();
     
+    string getCurrentVoiceName();
+    void setVoice(string voiceName);
+    
     float getRate() const;
     void setRate(float rate);
     

@@ -33,9 +33,10 @@ ofxVoiceSynthesizer::~ofxVoiceSynthesizer() {
     [voiceSynthesizerDelegate release];
 }
 
-void ofxVoiceSynthesizer::setup(string voiceName, string successMessage, string failureMessage)
+void ofxVoiceSynthesizer::setup(string _voiceName, string successMessage, string failureMessage)
 {
-    speakSynth = [[NSSpeechSynthesizer alloc] initWithVoice:convert(voiceName)];
+    NSString *voiceName = convert(_voiceName);
+    speakSynth = [[NSSpeechSynthesizer alloc] initWithVoice:voiceName];
     prepare();
     voiceSynthesizerDelegate = [[ofxVoiceSynthesizerDelegate alloc] initWithSuccessMessage:successMessage
                                                                          andFailureMessage:failureMessage];
@@ -45,15 +46,21 @@ void ofxVoiceSynthesizer::setup(string voiceName, string successMessage, string 
 void ofxVoiceSynthesizer::prepare() {
     if(!wasLoadLib) {
         setVolume(0.0f);
-        setRate(100.0f);
-        speak("s");
+        speak("z");
         while([speakSynth isSpeaking]) {
             usleep(10);
         }
-        setRate(1.0f);
         setVolume(1.0f);
         wasLoadLib = YES;
     }
+}
+
+string ofxVoiceSynthesizer::getCurrentVoiceName() {
+    return convert([speakSynth voice]);
+}
+
+void ofxVoiceSynthesizer::ofxVoiceSynthesizer::setVoice(string voiceName) {
+    [speakSynth setVoice:convert(voiceName)];
 }
 
 float ofxVoiceSynthesizer::getRate() const {
@@ -87,7 +94,5 @@ void ofxVoiceSynthesizer::stopSpeaking() {
 void ofxVoiceSynthesizer::addSpeechDictionary(string _path) {
     NSString *path = convert(_path);
     NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:path];
-    if(dictionary) {
-        [speakSynth addSpeechDictionary:dictionary];
-    }
+    [speakSynth addSpeechDictionary:dictionary];
 }
