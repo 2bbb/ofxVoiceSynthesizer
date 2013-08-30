@@ -6,8 +6,9 @@ void testApp::setup(){
     for(int i = 0; i < voices.size(); i++) {
         ofLogWarning() << voices[i];
     }
-    string dictionaryPath = ofToDataPath("SpeechDictionaryExample.xml", true);
     synth.setup("com.apple.speech.synthesis.voice.Bruce");
+    
+    string dictionaryPath = ofToDataPath("SpeechDictionaryExample.plist", true);
     synth.addSpeechDictionary(dictionaryPath);
 }
 
@@ -29,20 +30,20 @@ void testApp::keyPressed(int key){
     if(key == 'e') {
         synth.speak("hello. I am of x voice synthesizer.");
     }
+    
+    if(key == 'j') {
+        synth.setVoice("com.apple.speech.synthesis.voice.kyoko.premium");
+    }
     if(key == 'u') {
-        synth.speak("di");
+        synth.setVoice("com.apple.speech.synthesis.voice.Bruce");
     }
-    if(key == 't') {
-        synth.speak("ku");
-    }
-    if(key == 'd') {
-        synth.speak("sho");
-    }
-    if(key == 's') {
-        synth.speak("nary");
-    }
+    
     if(key == OF_KEY_RETURN) {
         synth.stopSpeaking();
+    }
+    if('A' <= key && key <= 'Z') {
+        string s = ofToString((char)key);
+        synth.speak(s);
     }
 }
 
