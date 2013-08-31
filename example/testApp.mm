@@ -2,11 +2,13 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
+    ofSetLogLevel(OF_LOG_VERBOSE);
+    
     vector<string> voices = ofxVoiceSynthesizer::getVoices();
     for(int i = 0; i < voices.size(); i++) {
-        ofLogWarning() << voices[i];
+        ofLogNotice() << voices[i];
     }
-    synth.setup("com.apple.speech.synthesis.voice.Bruce");
+    synth.setup("com.apple.speech.synthesis.voice.kyoko.premium");
     
     string dictionaryPath = ofToDataPath("SpeechDictionaryExample.plist", true);
     synth.addSpeechDictionary(dictionaryPath);
@@ -24,6 +26,7 @@ void testApp::draw(){
 
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
+    if(key == 'p') ofLogNotice() << synth.phonemes("hello");
     if(key == ' ') {
         synth.speak("こんにちは。私は of x voice synthesizer です。");
     }
@@ -79,7 +82,7 @@ void testApp::windowResized(int w, int h){
 
 //--------------------------------------------------------------
 void testApp::gotMessage(ofMessage msg){
-    ofLogWarning() << msg.message;
+    ofLogNotice() << msg.message;
 }
 
 //--------------------------------------------------------------
