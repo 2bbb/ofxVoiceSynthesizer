@@ -8,6 +8,7 @@
 #import "ofMain.h"
 #import <Foundation/Foundation.h>
 #import <AppKit/AppKit.h>
+#include "ofxVoices.h"
 
 #pragma once
 

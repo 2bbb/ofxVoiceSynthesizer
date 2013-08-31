@@ -8,10 +8,10 @@ void testApp::setup(){
     for(int i = 0; i < voices.size(); i++) {
         ofLogNotice() << voices[i];
     }
-    synth.setup("com.apple.speech.synthesis.voice.kyoko.premium");
-    
-    string dictionaryPath = ofToDataPath("SpeechDictionaryExample.plist", true);
-    synth.addSpeechDictionary(dictionaryPath);
+    synth.setup(ofxVoices::kyoko);
+//    
+//    string dictionaryPath = ofToDataPath("SpeechDictionaryExample.plist", true);
+//    synth.addSpeechDictionary(dictionaryPath);
 }
 
 //--------------------------------------------------------------
@@ -35,10 +35,10 @@ void testApp::keyPressed(int key){
     }
     
     if(key == 'j') {
-        synth.setVoice("com.apple.speech.synthesis.voice.kyoko.premium");
+        synth.setVoice(ofxVoices::kyoko);
     }
     if(key == 'u') {
-        synth.setVoice("com.apple.speech.synthesis.voice.Bruce");
+        synth.setVoice(ofxVoices::Bruce);
     }
     
     if(key == OF_KEY_RETURN) {
