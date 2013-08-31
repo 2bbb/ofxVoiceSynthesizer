@@ -40,6 +40,8 @@ public:
     void stopSpeaking();
     
     void addSpeechDictionary(string path);
+    
+    string phonemes(string text);
 private:
     static bool wasLoadLib;
     NSSpeechSynthesizer *speakSynth;

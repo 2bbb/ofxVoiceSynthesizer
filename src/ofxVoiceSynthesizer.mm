@@ -96,3 +96,8 @@ void ofxVoiceSynthesizer::addSpeechDictionary(string _path) {
     NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:path];
     [speakSynth addSpeechDictionary:dictionary];
 }
+
+string ofxVoiceSynthesizer::phonemes(string _text) {
+    NSString *text = convert(_text);
+    return convert([speakSynth phonemesFromText:text]);
+}
