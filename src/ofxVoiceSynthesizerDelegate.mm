@@ -23,9 +23,8 @@
 - (void)speechSynthesizer:(NSSpeechSynthesizer *)sender
         didFinishSpeaking:(BOOL)success
 {
-    [self performSelectorOnMainThread:@selector(sendMessage:)
-                           withObject:@(success)
-                        waitUntilDone:NO];
+    [self performSelectorInBackground:@selector(sendMessage:)
+                           withObject:@(success)];
 }
 
 - (void)sendMessage:(NSNumber *)success {
